@@ -4,3 +4,4 @@
  -}
 module Exercise2 where
 import qualified A1
+import A2
