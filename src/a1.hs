@@ -16,6 +16,9 @@ c :: List -> List -> List
 ce :: List -> Element -> List
 {- Access the element in the list at the given index. -}
 a :: List -> Index -> Element
+{- Get the size of a list. -}
+listSize  :: List -> Int
+listSize' :: AccInt -> List -> Int
 
 
 c1 []     = E
@@ -36,3 +39,7 @@ a E _ = error "Index out of bounds"
 a (L e l) i = if i == 0
               then e
               else a l (i - 1)
+
+listSize = listSize' 0
+listSize' acc E       = acc
+listSize' acc (L e l) = listSize' (acc + 1) l
