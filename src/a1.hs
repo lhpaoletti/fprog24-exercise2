@@ -3,12 +3,7 @@
  - date: 25.10.24
  -}
 module A1 where
-
-type Element = Char
-type Index   = Int
-data List    = E                 -- E for "empty"
-               | L Element List  -- L for "link"
-               deriving (Eq, Show)
+import Types
 
 
 {- Convert an array of elements into a list. -}
