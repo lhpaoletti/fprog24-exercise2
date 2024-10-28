@@ -3,5 +3,6 @@
  - date: 25.10.24
  -}
 module Exercise2 where
-import qualified A1
+import Types
+import A1
 import A2
