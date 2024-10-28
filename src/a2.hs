@@ -20,8 +20,8 @@ push :: List' -> Element -> List'
 a'  :: List' -> Index -> Element
 a'' :: List' -> BackIndex -> Element
 {- Get the size of a list. -}
-size'  :: List' -> Int
-size'' :: AccInt -> List' -> Int
+list'Size  :: List' -> Int
+list'Size' :: AccInt -> List' -> Int
 
 
 c1' = c1'' . reverse
@@ -40,7 +40,7 @@ c' (L' l1 e1) (L' l2 e2) = c' l1 (L' (push l2 e1) e2)
 push E' e         = L' E' e
 push (L' l e1) e2 = L' (push l e2) e1
 
-a' l i = let length  = size' l
+a' l i = let length  = list'Size l
              backInd = length - i - 1
          in if i >= length
             then error "Index out of bounds"
@@ -48,7 +48,6 @@ a' l i = let length  = size' l
 a'' (L' l e) 0 = e
 a'' (L' l _) i = a'' l (i - 1)
 
-size' = size'' 0
-size'' acc E'       = acc
-size'' acc (L' l _) = size'' (acc + 1) l
-
+list'Size = list'Size' 0
+list'Size' acc E'       = acc
+list'Size' acc (L' l _) = list'Size' (acc + 1) l
